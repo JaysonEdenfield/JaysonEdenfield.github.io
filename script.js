@@ -1,11 +1,14 @@
 const socket = io(); // todo setup serverside
-const message = getElementById("MsgIn");
+const messageIn = document.getElementById("msg input");
+const messages = document.getElementById("messages");
 
 class user {
     Name;
     SendMessage() {
-        if (this.Message)
-            
+        if (messageIn.value.trim()) {
+            socket.emit(messageIn.value.trim())
+            messageIn = '';
+        }
     }
 }
 
